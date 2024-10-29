@@ -11,16 +11,16 @@ namespace WebForm
 {
 
 
-	public partial class _Default
+	public partial class Tecnicos
 	{
 
 		/// <summary>
-		/// Control GVOrdenes.
+		/// Control GVTecnicos.
 		/// </summary>
 		/// <remarks>
 		/// Campo generado automáticamente.
 		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.GridView GVOrdenes;
+		protected global::System.Web.UI.WebControls.GridView GVTecnicos;
 	}
 }

@@ -17,6 +17,8 @@ namespace Entidades
     public string Telefono { get; set; }
     public string Email { get; set; }
 
+    public Cliente() { }
+
     public Cliente(string nombre, string apellido, string cI, string direccion, string telefono)
     {
       ID_Cliente = ++IdIncremental;
