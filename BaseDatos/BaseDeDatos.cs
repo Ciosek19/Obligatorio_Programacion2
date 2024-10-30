@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,7 +10,7 @@ namespace BaseDatos
 {
 	public static class BaseDeDatos
 	{
-		public static List<Cliente> ListaClientes = new List<Cliente>
+		public static List<Cliente> ListaClientes { get; set;} = new List<Cliente>
 		{
 			new Cliente("Pepe", "Sanchez", "30302553", "Carlos Paez 2204", "095989898", "pepesanchez@gmail.com"),
 			new Cliente("Carlos", "Garcia", "30503553", "18 de Julio 204", "099123591"),
@@ -18,9 +19,9 @@ namespace BaseDatos
 
 		public static List<Tecnico> ListaTecnicos { get; set; } = new List<Tecnico>
 		{
-			new Tecnico("Nacho", "Culebra", "33490543", Especialidad.Informatica),
-			new Tecnico("Julia", "Lopez", "43223541", Especialidad.Electrodomesticos),
-			new Tecnico("Pablo", "Clavito", "52518522", Especialidad.Iluminacion)
+			new Tecnico("Nacho", "Culebra", "33490543", "Informatica"),
+			new Tecnico("Julia", "Lopez", "43223541", "Electrodomesticos"),
+			new Tecnico("Pablo", "Clavito", "52518522", "Iluminacion")
 		};
 
 		public static List<Orden> ListaOrdenes = new List<Orden>
@@ -30,6 +31,8 @@ namespace BaseDatos
 			new Orden(ListaClientes[2], ListaTecnicos[2], "Instalar luces", DateTime.Now, Estado.Pendiente, ListaTecnicos[2].ListaComentarios)
 		};
 
+		/////////////// CLIENTES
+		///
 		public static Cliente ObtenerCliente(int idCliente)
 		{
 			foreach (Cliente cliente in ListaClientes)
@@ -41,9 +44,44 @@ namespace BaseDatos
 			}
 			return null;
 		}
-		
-		public static void EditarCliente(Cliente cliente, Cliente nuevoCliente)
+
+		public static void EliminarCliente(int idCliente)
 		{
+			foreach (var cliente in ListaClientes)
+			{
+				if (cliente.ID_Cliente == idCliente) {
+					ListaClientes.Remove(cliente);
+					break;
+				}
+			}
 		}
+		////////////////////////
+
+		/////////////// TECNICOS
+		///
+		public static Tecnico ObtenerTecnico(int idTecnico)
+		{
+			foreach (Tecnico tecnico in ListaTecnicos)
+			{
+				if (tecnico.ID_Tecnico == idTecnico)
+				{
+					return tecnico;
+				}
+			}
+			return null;
+		}
+
+		public static void EliminarTecnico(int idTecnico)
+		{
+			foreach (Tecnico tecnico in ListaTecnicos)
+			{
+				if (tecnico.ID_Tecnico == idTecnico)
+				{
+					ListaTecnicos.Remove(tecnico);
+					break;
+				}
+			}
+		}
+
 	}
 }

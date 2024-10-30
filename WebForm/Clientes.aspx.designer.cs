@@ -24,13 +24,31 @@ namespace WebForm
 		protected global::System.Web.UI.WebControls.GridView GVClientes;
 
 		/// <summary>
-		/// Control editarContenedor.
+		/// Control btnAgregarCliente.
 		/// </summary>
 		/// <remarks>
 		/// Campo generado automáticamente.
 		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.PlaceHolder editarContenedor;
+		protected global::System.Web.UI.WebControls.LinkButton btnAgregarCliente;
+
+		/// <summary>
+		/// Control editarAgregarContenedor.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.PlaceHolder editarAgregarContenedor;
+
+		/// <summary>
+		/// Control lblEditarAgregar.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label lblEditarAgregar;
 
 		/// <summary>
 		/// Control txtId.
@@ -94,5 +112,32 @@ namespace WebForm
 		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.TextBox txtEmail;
+
+		/// <summary>
+		/// Control btnGuardarCambios.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.LinkButton btnGuardarCambios;
+
+		/// <summary>
+		/// Control btnAgregar.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.LinkButton btnAgregar;
+
+		/// <summary>
+		/// Control btnVolver.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.LinkButton btnVolver;
 	}
 }

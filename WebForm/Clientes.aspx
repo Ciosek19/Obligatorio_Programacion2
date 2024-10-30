@@ -16,12 +16,11 @@
 				<asp:BoundField DataField="Email" HeaderText="Email*" />
 				<asp:TemplateField>
 					<ItemTemplate>
+						<asp:LinkButton runat="server" OnClick="Editar_Click" 
+							CssClass="btn btn-sm btn-primary" CommandArgument='<%#Eval("ID_Cliente") %>'>
+						Editar</asp:LinkButton>
 						<asp:LinkButton runat="server"
-							CssClass="btn btn-sm btn-primary">
-						Editar
-						</asp:LinkButton>
-						<asp:LinkButton runat="server"
-							CssClass="btn btn-sm btn-danger" OnClientClick="return confirm('Desea eliminar?')">
+							CssClass="btn btn-sm btn-danger" OnClick="Eliminar_Click" OnClientClick="return confirm('Desea eliminar?')" CommandArgument='<%#Eval("ID_Cliente") %>'>
 						Eliminar
 						</asp:LinkButton>
 
@@ -30,14 +29,16 @@
 			</Columns>
 		</asp:GridView>
 	</div>
-	<asp:LinkButton runat="server"
-		CssClass="btn btn-sm btn-success" OnClientClick="return confirm('Desea eliminar?')">
+	<asp:LinkButton runat="server" ID="btnAgregarCliente"
+		CssClass="btn btn-sm btn-success" Enabled="true" OnClick="AgregarCliente_Click">
 Agregar Cliente
 	</asp:LinkButton>
 	<br />
 	<br />
-	<asp:PlaceHolder runat="server" ID="editarContenedor" Visible="true">
-		<h3>Editar Cliente:</h3>
+	<!-- EDITAR Y AGREGAR - Contenedor -->
+	<asp:PlaceHolder runat="server" ID="editarAgregarContenedor" Visible="false">
+		<asp:Label runat="server" Text="Titulo" Font-Size="40px" ID="lblEditarAgregar"></asp:Label>
+		<br />
 		<asp:Label runat="server" CssClass="">ID Cliente</asp:Label><br />
 		<asp:TextBox runat="server" TextMode="Number" Enabled="false" ID="txtId"></asp:TextBox>
 		<br />
@@ -60,6 +61,18 @@ Agregar Cliente
 		<asp:TextBox runat="server" ID="txtEmail"></asp:TextBox>
 
 		<br />
-
+		<br />
+			<asp:LinkButton runat="server" ID="btnGuardarCambios"
+		CssClass="btn btn-sm btn-success" OnClick="GuardarCambios_Click">
+Guardar
+	</asp:LinkButton>
+	<asp:LinkButton runat="server" ID="btnAgregar"
+		CssClass="btn btn-sm btn-success" OnClick="Agregar_Click">
+Agregar
+	</asp:LinkButton>
+		<asp:LinkButton runat="server" ID="btnVolver"
+		CssClass="btn btn-sm btn-danger ml-2" OnClick="Volver_Click">
+Volver
+	</asp:LinkButton>
 	</asp:PlaceHolder>
 </asp:Content>

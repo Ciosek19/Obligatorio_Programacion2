@@ -27,6 +27,7 @@ namespace Entidades
       CI = cI;
       Direccion = direccion;
       Telefono = telefono;
+      Email = "";
     }
 
     public Cliente(string nombre, string apellido, string cI, string direccion, string telefono, string email)
