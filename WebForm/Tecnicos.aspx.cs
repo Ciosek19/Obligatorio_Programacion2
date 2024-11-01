@@ -16,8 +16,7 @@ namespace WebForm
 			if (!IsPostBack)
 			{
 				MostrarTecnicos();
-
-				ddlEspecialidad.DataSource = new List<string> { "Informatica", "Iluminacion", "Electrodomesticos" };
+				ddlEspecialidad.DataSource = Enum.GetValues(typeof(Especialidad));
 				ddlEspecialidad.DataBind();
 			}
 		}
@@ -43,7 +42,7 @@ namespace WebForm
 			txtApellido.Text = tecnicoBaseDatos.Apellido;
 			txtCedula.Text = tecnicoBaseDatos.CI;
 			ddlEspecialidad.ClearSelection();
-			ddlEspecialidad.Items.FindByText(tecnicoBaseDatos.EspecialidadTecnico).Selected = true;
+			ddlEspecialidad.SelectedValue = tecnicoBaseDatos.EspecialidadTecnico.ToString();
 		}
 
 		protected void GuardarCambios_Click(object sender, EventArgs e)
@@ -53,7 +52,11 @@ namespace WebForm
 			tecnicoBaseDatos.Nombre = txtNombre.Text;
 			tecnicoBaseDatos.Apellido = txtApellido.Text;
 			tecnicoBaseDatos.CI = txtCedula.Text;
-			tecnicoBaseDatos.EspecialidadTecnico = ddlEspecialidad.SelectedItem.Value;
+			Especialidad esp;
+			if (Enum.TryParse(ddlEspecialidad.SelectedValue, out esp))
+			{
+				tecnicoBaseDatos.EspecialidadTecnico = esp;
+			}
 			Response.Redirect("~/Tecnicos");
 		}
 
@@ -69,8 +72,10 @@ namespace WebForm
 
 		protected void Agregar_Click(object sender, EventArgs e)
 		{
-			string especialidad = ddlEspecialidad.SelectedItem.Value;
-			Tecnico tecnico = new Tecnico(txtNombre.Text, txtApellido.Text, txtCedula.Text, especialidad);
+			string especialidad = ddlEspecialidad.SelectedValue;
+			Especialidad esp;
+			Enum.TryParse(ddlEspecialidad.SelectedValue, out esp);
+			Tecnico tecnico = new Tecnico(txtNombre.Text, txtApellido.Text, txtCedula.Text, esp);
 			BaseDeDatos.ListaTecnicos.Add(tecnico);
 			LimpiarTextbox();
 			Response.Redirect("~/Tecnicos");

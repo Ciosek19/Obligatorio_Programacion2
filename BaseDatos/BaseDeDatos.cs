@@ -19,9 +19,9 @@ namespace BaseDatos
 
 		public static List<Tecnico> ListaTecnicos { get; set; } = new List<Tecnico>
 		{
-			new Tecnico("Nacho", "Culebra", "33490543", "Informatica"),
-			new Tecnico("Julia", "Lopez", "43223541", "Electrodomesticos"),
-			new Tecnico("Pablo", "Clavito", "52518522", "Iluminacion")
+			new Tecnico("Nacho", "Culebra", "33490543", Especialidad.Informatica),
+			new Tecnico("Julia", "Lopez", "43223541", Especialidad.Redes),
+			new Tecnico("Pablo", "Clavito", "52518522", Especialidad.Electrodomesticos)
 		};
 
 		public static List<Orden> ListaOrdenes = new List<Orden>
@@ -82,6 +82,31 @@ namespace BaseDatos
 				}
 			}
 		}
+		/////////////// ORDENES
+		///
+		public static Orden ObtenerOrden(int idOrden)
+		{
+			foreach (Orden orden in ListaOrdenes)
+			{
+				if (orden.ID_Orden == idOrden)
+				{
+					return orden;
+				}
+			}
+			return null;
+		}
 
+		public static void EliminarOrden(int idOrden)
+		{
+			foreach (var orden in ListaOrdenes)
+			{
+				if (orden.ID_Orden == idOrden)
+				{
+					ListaOrdenes.Remove(orden);
+					break;
+				}
+			}
+		}
+		////////////////////////
 	}
 }

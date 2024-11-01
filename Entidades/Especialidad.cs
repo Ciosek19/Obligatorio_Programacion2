@@ -8,8 +8,8 @@ namespace Entidades
 {
   public enum Especialidad
   {
+    Redes,
     Informatica,
-    Electrodomesticos,
-    Iluminacion
+    Electrodomesticos
   }
 }

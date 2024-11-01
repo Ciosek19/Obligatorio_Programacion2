@@ -13,10 +13,10 @@ namespace Entidades
     public string Nombre { get; set; }
     public string Apellido { get; set; }
     public string CI { get; set; }
-    public string EspecialidadTecnico { get; set; }
+    public Especialidad EspecialidadTecnico { get; set; }
     public List<string> ListaComentarios { get; set; }
 
-    public Tecnico(string nombre, string apellido, string cI, string especialidad)
+    public Tecnico(string nombre, string apellido, string cI, Especialidad especialidad)
     {
       ID_Tecnico = ++IdIncremental;
       Nombre = nombre;
