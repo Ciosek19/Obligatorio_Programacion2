@@ -32,8 +32,6 @@ namespace WebForm
 				ddlTecnico.DataTextField = "Nombre";
 				ddlTecnico.DataValueField = "ID_Tecnico";
 				ddlTecnico.DataBind();
-
-
 			}
 		}
 
