@@ -33,13 +33,13 @@ namespace WebForm
 		protected global::System.Web.UI.WebControls.LinkButton btnAgregarOrden;
 
 		/// <summary>
-		/// Control editarAgregarContenedor.
+		/// Control editarContenedor.
 		/// </summary>
 		/// <remarks>
 		/// Campo generado automáticamente.
 		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.PlaceHolder editarAgregarContenedor;
+		protected global::System.Web.UI.WebControls.PlaceHolder editarContenedor;
 
 		/// <summary>
 		/// Control lblEditarAgregar.
@@ -69,6 +69,15 @@ namespace WebForm
 		protected global::System.Web.UI.WebControls.DropDownList ddlEstado;
 
 		/// <summary>
+		/// Control txtComentario.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox txtComentario;
+
+		/// <summary>
 		/// Control btnGuardarCambios.
 		/// </summary>
 		/// <remarks>
@@ -76,6 +85,78 @@ namespace WebForm
 		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.LinkButton btnGuardarCambios;
+
+		/// <summary>
+		/// Control btnVolver.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.LinkButton btnVolver;
+
+		/// <summary>
+		/// Control guardarContenedor.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.PlaceHolder guardarContenedor;
+
+		/// <summary>
+		/// Control Label1.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label Label1;
+
+		/// <summary>
+		/// Control txtAgregarID.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox txtAgregarID;
+
+		/// <summary>
+		/// Control ddlCliente.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.DropDownList ddlCliente;
+
+		/// <summary>
+		/// Control ddlTecnico.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.DropDownList ddlTecnico;
+
+		/// <summary>
+		/// Control txtDescripcion.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox txtDescripcion;
+
+		/// <summary>
+		/// Control ddlEstadoAgregar.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.DropDownList ddlEstadoAgregar;
 
 		/// <summary>
 		/// Control btnAgregar.
@@ -87,12 +168,12 @@ namespace WebForm
 		protected global::System.Web.UI.WebControls.LinkButton btnAgregar;
 
 		/// <summary>
-		/// Control btnVolver.
+		/// Control btnAgregarVolver.
 		/// </summary>
 		/// <remarks>
 		/// Campo generado automáticamente.
 		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.LinkButton btnVolver;
+		protected global::System.Web.UI.WebControls.LinkButton btnAgregarVolver;
 	}
 }

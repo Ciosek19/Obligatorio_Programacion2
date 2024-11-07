@@ -16,8 +16,24 @@ namespace WebForm
 			if (!IsPostBack)
 			{
 				MostrarOrdenes();
+
 				ddlEstado.DataSource = Enum.GetValues(typeof(Estado));
 				ddlEstado.DataBind();
+
+				ddlEstadoAgregar.DataSource = Enum.GetValues(typeof(Estado));
+				ddlEstadoAgregar.DataBind();
+
+				ddlCliente.DataSource = BaseDeDatos.ListaClientes;
+				ddlCliente.DataTextField = "Nombre";
+				ddlCliente.DataValueField = "ID_Cliente";
+				ddlCliente.DataBind();
+
+				ddlTecnico.DataSource = BaseDeDatos.ListaTecnicos;
+				ddlTecnico.DataTextField = "Nombre";
+				ddlTecnico.DataValueField = "ID_Tecnico";
+				ddlTecnico.DataBind();
+
+
 			}
 		}
 
@@ -31,7 +47,8 @@ namespace WebForm
 		{
 			LinkButton btn = (LinkButton)sender;
 			int idOrden = Convert.ToInt32(btn.CommandArgument);
-			editarAgregarContenedor.Visible = true;
+			editarContenedor.Visible = true;
+			guardarContenedor.Visible = false;
 			btnAgregar.Enabled = false;
 			lblEditarAgregar.Text = "Editar Orden:";
 			btnAgregar.Visible = false;
@@ -45,52 +62,68 @@ namespace WebForm
 		protected void GuardarCambios_Click(object sender, EventArgs e)
 		{
 
-			int idOrden = Convert.ToInt32(txtId.Text); 
+			int idOrden = Convert.ToInt32(txtId.Text);
 			Orden ordenBaseDatos = BaseDeDatos.ObtenerOrden(idOrden);
 			Estado est;
 			if (Enum.TryParse(ddlEstado.SelectedValue, out est))
 			{
 				ordenBaseDatos.EstadoOrden = est;
 			}
+			if (!string.IsNullOrWhiteSpace(txtComentario.Text))
+			{
+				BaseDeDatos.ObtenerOrden(idOrden).AgregarComentario(txtComentario.Text);
+			}
 			Response.Redirect("~/Ordenes");
 		}
 
-		protected void AgregarTecnico_Click(object sender, EventArgs e)
+		protected void AgregarOrden_Click(object sender, EventArgs e)
 		{
 			btnAgregarOrden.Enabled = false;
-			editarAgregarContenedor.Visible = true;
-			lblEditarAgregar.Text = "Agregar cliente:";
+			btnAgregar.Enabled = true;
+			guardarContenedor.Visible = true;
+			lblEditarAgregar.Text = "Agregar Orden:";
 			btnAgregar.Visible = true;
 			btnGuardarCambios.Visible = false;
-
+			txtAgregarID.Text = (BaseDeDatos.ListaOrdenes.Last().ID_Orden + 1).ToString();
 		}
 
 		protected void Agregar_Click(object sender, EventArgs e)
 		{
-			string estado = ddlEstado.SelectedValue;
+			string estado = ddlEstadoAgregar.SelectedValue;
 			Estado est;
+			Enum.TryParse(ddlEstadoAgregar.SelectedValue, out est);
+
+			int clienteId = Convert.ToInt32(ddlCliente.SelectedValue);
+			Cliente cliente = BaseDeDatos.ObtenerCliente(clienteId);
+
+			int tecnicoId = Convert.ToInt32(ddlTecnico.SelectedValue);
+			Tecnico tecnico = BaseDeDatos.ObtenerTecnico(tecnicoId);
+
+			Orden orden = new Orden(cliente,tecnico,txtDescripcion.Text, DateTime.Now, est, new List<string>());   
+			BaseDeDatos.ListaOrdenes.Add(orden);
 			LimpiarTextbox();
-			Response.Redirect("~/Tecnicos");
+			Response.Redirect("~/Ordenes");
 		}
 
 		protected void Volver_Click(object sender, EventArgs e)
 		{
 			LimpiarTextbox();
-			editarAgregarContenedor.Visible = false;
+			editarContenedor.Visible = false;
+			guardarContenedor.Visible = false;
 			btnAgregarOrden.Enabled = true;
 		}
 
 		protected void Eliminar_Click(object sender, EventArgs e)
 		{
 			LinkButton btn = (LinkButton)sender;
-			int idTecnico = Convert.ToInt32(btn.CommandArgument);
-			BaseDeDatos.EliminarTecnico(idTecnico);
-			Response.Redirect("~/Tecnicos");
+			int idOrden = Convert.ToInt32(btn.CommandArgument);
+			BaseDeDatos.EliminarOrden(idOrden);
+			Response.Redirect("~/Ordenes");
 		}
 
 		private void LimpiarTextbox()
 		{
-		
+
 		}
 	}
 }

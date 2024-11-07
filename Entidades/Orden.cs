@@ -15,7 +15,7 @@ namespace Entidades
     public string Descripcion { get; set; }
     public DateTime Fecha { get; set; }
     public Estado EstadoOrden { get; set; }
-    public List<string> Comentarios = new List<string>();
+    public List<string> Comentarios { get; set; } = new List<string>();
 
     public Orden(Cliente oCliente, Tecnico oTecnico, string descripcion, DateTime fecha, Estado estadoOrden, List<string> comentarios)
     {
@@ -26,6 +26,10 @@ namespace Entidades
       Fecha = fecha;
       EstadoOrden = estadoOrden;
       Comentarios = comentarios;
+    }
+
+    public void AgregarComentario(string comentario){
+      Comentarios.Add(comentario);
     }
   }
 }

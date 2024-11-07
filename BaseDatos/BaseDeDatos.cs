@@ -26,9 +26,9 @@ namespace BaseDatos
 
 		public static List<Orden> ListaOrdenes = new List<Orden>
 		{
-			new Orden(ListaClientes[0], ListaTecnicos[0], "Limpiar virus", DateTime.Now, Estado.Completada, ListaTecnicos[0].ListaComentarios),
-			new Orden(ListaClientes[1], ListaTecnicos[1], "Arreglar Heladera", DateTime.Now, Estado.EnProgreso, ListaTecnicos[1].ListaComentarios),
-			new Orden(ListaClientes[2], ListaTecnicos[2], "Instalar luces", DateTime.Now, Estado.Pendiente, ListaTecnicos[2].ListaComentarios)
+			new Orden(ListaClientes[0], ListaTecnicos[0], "Limpiar virus", DateTime.Now, Estado.Completada, new List<string>(){"Habia descargado por ares","Se tuvo que hacer una limpieza total"}),
+			new Orden(ListaClientes[1], ListaTecnicos[1], "Arreglar Heladera", DateTime.Now, Estado.EnProgreso, new List<string>(){"Se necesita una nueva pieza","Se tiene que mandar a montevideo"}),
+			new Orden(ListaClientes[2], ListaTecnicos[2], "Instalar luces", DateTime.Now, Estado.Pendiente, new List<string>(){"No me abre la puerta","No era la direccion correcta" })
 		};
 
 		/////////////// CLIENTES
