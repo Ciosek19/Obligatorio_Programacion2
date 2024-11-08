@@ -72,6 +72,7 @@ namespace WebForm
 				BaseDeDatos.ObtenerOrden(idOrden).AgregarComentario(txtComentario.Text);
 			}
 			Response.Redirect("~/Ordenes");
+
 		}
 
 		protected void AgregarOrden_Click(object sender, EventArgs e)
