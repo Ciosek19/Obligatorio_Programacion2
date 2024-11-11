@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BaseDatos;
+using Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,22 @@ namespace WebForm
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			if (!IsPostBack)
+			{
+				ddlTecnicos.DataSource = BaseDeDatos.ListaTecnicos;
+				ddlTecnicos.DataTextField = "Nombre";
+				ddlTecnicos.DataValueField = "ID_Tecnico";
+				ddlTecnicos.DataBind();
+				MostrarCantidad(null,null);
+			}
+		}
 
+		public void MostrarCantidad(object sender, EventArgs e)
+		{
+			Tecnico tecnico = BaseDeDatos.ObtenerTecnico(Convert.ToInt32(ddlTecnicos.SelectedValue));
+			tcPendiente.Text = BaseDeDatos.CantidadOrdenesEstadoTecnico(tecnico, Estado.Pendiente).ToString();
+			tcProgreso.Text = BaseDeDatos.CantidadOrdenesEstadoTecnico(tecnico, Estado.EnProgreso).ToString();
+			tcCompletada.Text = BaseDeDatos.CantidadOrdenesEstadoTecnico(tecnico, Estado.Completada).ToString();
 		}
 	}
 }

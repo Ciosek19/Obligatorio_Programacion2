@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace BaseDatos
 {
 	public static class BaseDeDatos
 	{
-		public static List<Cliente> ListaClientes { get; set;} = new List<Cliente>
+		public static List<Cliente> ListaClientes { get; set; } = new List<Cliente>
 		{
 			new Cliente("Pepe", "Sanchez", "30302553", "Carlos Paez 2204", "095989898", "pepesanchez@gmail.com"),
 			new Cliente("Carlos", "Garcia", "30503553", "18 de Julio 204", "099123591"),
@@ -49,7 +50,8 @@ namespace BaseDatos
 		{
 			foreach (var cliente in ListaClientes)
 			{
-				if (cliente.ID_Cliente == idCliente) {
+				if (cliente.ID_Cliente == idCliente)
+				{
 					ListaClientes.Remove(cliente);
 					break;
 				}
@@ -108,5 +110,33 @@ namespace BaseDatos
 			}
 		}
 		////////////////////////
+		/// REPORTES ACTIVIDAD
+
+		public static List<Orden> OrdenesTecnico(Tecnico tecnico)
+		{
+			List<Orden> listaOrdenes = new List<Orden>();
+			foreach (Orden orden in ListaOrdenes)
+			{
+				if (orden.OTecnico == tecnico)
+				{
+					listaOrdenes.Add(orden);
+				}
+			}
+			return listaOrdenes;
+		}
+
+		public static int CantidadOrdenesEstadoTecnico(Tecnico tecnico, Estado estado)
+		{
+			int cantidad = 0;
+			foreach (Orden orden in OrdenesTecnico(tecnico))
+			{
+				if (orden.EstadoOrden == estado)
+				{
+					cantidad++;
+				}
+			}
+			return cantidad;
+		}
 	}
 }
+
