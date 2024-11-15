@@ -117,7 +117,7 @@ namespace BaseDatos
 			List<Orden> listaOrdenes = new List<Orden>();
 			foreach (Orden orden in ListaOrdenes)
 			{
-				if (orden.OTecnico == tecnico)
+				if (orden.OTecnico.ID_Tecnico == tecnico.ID_Tecnico)
 				{
 					listaOrdenes.Add(orden);
 				}
@@ -136,6 +136,19 @@ namespace BaseDatos
 				}
 			}
 			return cantidad;
+		}
+
+		public static List<Orden> FiltrarOrdenesPorEstado(Estado estado)
+		{
+			List<Orden> listaFiltrada = new List<Orden>();
+			foreach (Orden orden in ListaOrdenes)
+			{
+				if (orden.EstadoOrden == estado)
+				{
+					listaFiltrada.Add(orden);
+				}
+			}
+			return listaFiltrada;
 		}
 	}
 }

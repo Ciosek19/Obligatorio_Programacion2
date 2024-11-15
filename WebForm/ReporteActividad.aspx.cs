@@ -19,7 +19,10 @@ namespace WebForm
 				ddlTecnicos.DataTextField = "Nombre";
 				ddlTecnicos.DataValueField = "ID_Tecnico";
 				ddlTecnicos.DataBind();
-				MostrarCantidad(null,null);
+
+				ddlEstado.DataSource = Enum.GetValues(typeof(Estado));
+				ddlEstado.DataBind();
+
 			}
 		}
 
@@ -29,6 +32,16 @@ namespace WebForm
 			tcPendiente.Text = BaseDeDatos.CantidadOrdenesEstadoTecnico(tecnico, Estado.Pendiente).ToString();
 			tcProgreso.Text = BaseDeDatos.CantidadOrdenesEstadoTecnico(tecnico, Estado.EnProgreso).ToString();
 			tcCompletada.Text = BaseDeDatos.CantidadOrdenesEstadoTecnico(tecnico, Estado.Completada).ToString();
+
 		}
+
+		public void MostrarOrdenesPorEstado(object sender, EventArgs e)
+		{
+			Estado estado = (Estado)Enum.Parse(typeof(Estado), ddlEstado.SelectedValue);
+			GVOrdenes.DataSource = BaseDeDatos.FiltrarOrdenesPorEstado(estado);
+			GVOrdenes.DataBind();
+		}
+
+		
 	}
 }

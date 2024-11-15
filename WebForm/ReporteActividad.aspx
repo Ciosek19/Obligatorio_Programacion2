@@ -24,10 +24,40 @@
 			<asp:TableCell runat="server" Text="-" ID="tcCompletada"></asp:TableCell>
 		</asp:TableRow>
 	</asp:Table>
+	<hr />
 	<h3>Ordenes por estado</h3>
-	<label style="font-size: 20px">Seleccione al tecnico</label><br />
+	<label style="font-size: 20px">Seleccione el estado de la Orden</label><br />
 	<label>Estado: </label>
-	<asp:DropDownList runat="server" ID="ddlEstado" AutoPostBack="true"></asp:DropDownList><br />
-<br />
+	<asp:DropDownList runat="server" ID="ddlEstado" OnSelectedIndexChanged="MostrarOrdenesPorEstado" AutoPostBack="true"></asp:DropDownList><br />
+	<asp:GridView ID="GVOrdenes" runat="server" CssClass="table table-bordered mt-3" AutoGenerateColumns="false">
+		<Columns>
+			<asp:BoundField DataField="ID_Orden" HeaderText="ID" />
+			<asp:TemplateField HeaderText="Cliente">
+				<ItemTemplate>
+					<%#Eval("OCliente.Nombre")%> <%#Eval("OCliente.Apellido")%>
+				</ItemTemplate>
+			</asp:TemplateField>
+			<asp:TemplateField HeaderText="Tecnico">
+				<ItemTemplate>
+					<%#Eval("OTecnico.Nombre")%> <%#Eval("OTecnico.Apellido")%>
+				</ItemTemplate>
+			</asp:TemplateField>
+			<asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />
+			<asp:BoundField DataField="Fecha" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Fecha" />
+			<asp:BoundField DataField="EstadoOrden" HeaderText="Estado" />
+			<asp:TemplateField HeaderText="Comentarios">
+				<ItemTemplate>
+					<asp:Repeater ID="Repetidor" runat="server" DataSource='<%#Eval("Comentarios") %>'>
+						<ItemTemplate>
+							<%# Container.DataItem %>
+							<br />
+							<br />
+						</ItemTemplate>
+					</asp:Repeater>
+				</ItemTemplate>
+			</asp:TemplateField>
 
+		</Columns>
+	</asp:GridView>
+	<br />
 </asp:Content>
