@@ -11,169 +11,178 @@ namespace WebForm
 {
 
 
-	public partial class Ordenes
-	{
+   public partial class Ordenes
+   {
 
-		/// <summary>
-		/// Control GVOrdenes.
-		/// </summary>
-		/// <remarks>
-		/// Campo generado automáticamente.
-		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.GridView GVOrdenes;
+      /// <summary>
+      /// Control GVOrdenes.
+      /// </summary>
+      /// <remarks>
+      /// Campo generado automáticamente.
+      /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+      /// </remarks>
+      protected global::System.Web.UI.WebControls.GridView GVOrdenes;
 
-		/// <summary>
-		/// Control btnAgregarOrden.
-		/// </summary>
-		/// <remarks>
-		/// Campo generado automáticamente.
-		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.LinkButton btnAgregarOrden;
+      /// <summary>
+      /// Control btnAgregarOrden.
+      /// </summary>
+      /// <remarks>
+      /// Campo generado automáticamente.
+      /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+      /// </remarks>
+      protected global::System.Web.UI.WebControls.LinkButton btnAgregarOrden;
 
-		/// <summary>
-		/// Control editarContenedor.
-		/// </summary>
-		/// <remarks>
-		/// Campo generado automáticamente.
-		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.PlaceHolder editarContenedor;
+      /// <summary>
+      /// Control AgregarComentarioContenedor.
+      /// </summary>
+      /// <remarks>
+      /// Campo generado automáticamente.
+      /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+      /// </remarks>
+      protected global::System.Web.UI.WebControls.PlaceHolder AgregarComentarioContenedor;
 
-		/// <summary>
-		/// Control lblEditarAgregar.
-		/// </summary>
-		/// <remarks>
-		/// Campo generado automáticamente.
-		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label lblEditarAgregar;
+      /// <summary>
+      /// Control txtComentario.
+      /// </summary>
+      /// <remarks>
+      /// Campo generado automáticamente.
+      /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+      /// </remarks>
+      protected global::System.Web.UI.WebControls.TextBox txtComentario;
 
-		/// <summary>
-		/// Control txtId.
-		/// </summary>
-		/// <remarks>
-		/// Campo generado automáticamente.
-		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtId;
+      /// <summary>
+      /// Control editarContenedor.
+      /// </summary>
+      /// <remarks>
+      /// Campo generado automáticamente.
+      /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+      /// </remarks>
+      protected global::System.Web.UI.WebControls.PlaceHolder editarContenedor;
 
-		/// <summary>
-		/// Control ddlEstado.
-		/// </summary>
-		/// <remarks>
-		/// Campo generado automáticamente.
-		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.DropDownList ddlEstado;
+      /// <summary>
+      /// Control lblEditarAgregar.
+      /// </summary>
+      /// <remarks>
+      /// Campo generado automáticamente.
+      /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+      /// </remarks>
+      protected global::System.Web.UI.WebControls.Label lblEditarAgregar;
 
-		/// <summary>
-		/// Control txtComentario.
-		/// </summary>
-		/// <remarks>
-		/// Campo generado automáticamente.
-		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtComentario;
+      /// <summary>
+      /// Control txtId.
+      /// </summary>
+      /// <remarks>
+      /// Campo generado automáticamente.
+      /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+      /// </remarks>
+      protected global::System.Web.UI.WebControls.TextBox txtId;
 
-		/// <summary>
-		/// Control btnGuardarCambios.
-		/// </summary>
-		/// <remarks>
-		/// Campo generado automáticamente.
-		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.LinkButton btnGuardarCambios;
+      /// <summary>
+      /// Control ddlEstado.
+      /// </summary>
+      /// <remarks>
+      /// Campo generado automáticamente.
+      /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+      /// </remarks>
+      protected global::System.Web.UI.WebControls.DropDownList ddlEstado;
 
-		/// <summary>
-		/// Control btnVolver.
-		/// </summary>
-		/// <remarks>
-		/// Campo generado automáticamente.
-		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.LinkButton btnVolver;
+      /// <summary>
+      /// Control btnGuardarCambios.
+      /// </summary>
+      /// <remarks>
+      /// Campo generado automáticamente.
+      /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+      /// </remarks>
+      protected global::System.Web.UI.WebControls.LinkButton btnGuardarCambios;
 
-		/// <summary>
-		/// Control guardarContenedor.
-		/// </summary>
-		/// <remarks>
-		/// Campo generado automáticamente.
-		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.PlaceHolder guardarContenedor;
+      /// <summary>
+      /// Control btnVolver.
+      /// </summary>
+      /// <remarks>
+      /// Campo generado automáticamente.
+      /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+      /// </remarks>
+      protected global::System.Web.UI.WebControls.LinkButton btnVolver;
 
-		/// <summary>
-		/// Control Label1.
-		/// </summary>
-		/// <remarks>
-		/// Campo generado automáticamente.
-		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label Label1;
+      /// <summary>
+      /// Control guardarContenedor.
+      /// </summary>
+      /// <remarks>
+      /// Campo generado automáticamente.
+      /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+      /// </remarks>
+      protected global::System.Web.UI.WebControls.PlaceHolder guardarContenedor;
 
-		/// <summary>
-		/// Control txtAgregarID.
-		/// </summary>
-		/// <remarks>
-		/// Campo generado automáticamente.
-		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtAgregarID;
+      /// <summary>
+      /// Control Label1.
+      /// </summary>
+      /// <remarks>
+      /// Campo generado automáticamente.
+      /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+      /// </remarks>
+      protected global::System.Web.UI.WebControls.Label Label1;
 
-		/// <summary>
-		/// Control ddlCliente.
-		/// </summary>
-		/// <remarks>
-		/// Campo generado automáticamente.
-		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.DropDownList ddlCliente;
+      /// <summary>
+      /// Control txtAgregarID.
+      /// </summary>
+      /// <remarks>
+      /// Campo generado automáticamente.
+      /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+      /// </remarks>
+      protected global::System.Web.UI.WebControls.TextBox txtAgregarID;
 
-		/// <summary>
-		/// Control ddlTecnico.
-		/// </summary>
-		/// <remarks>
-		/// Campo generado automáticamente.
-		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.DropDownList ddlTecnico;
+      /// <summary>
+      /// Control ddlCliente.
+      /// </summary>
+      /// <remarks>
+      /// Campo generado automáticamente.
+      /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+      /// </remarks>
+      protected global::System.Web.UI.WebControls.DropDownList ddlCliente;
 
-		/// <summary>
-		/// Control txtDescripcion.
-		/// </summary>
-		/// <remarks>
-		/// Campo generado automáticamente.
-		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtDescripcion;
+      /// <summary>
+      /// Control ddlTecnico.
+      /// </summary>
+      /// <remarks>
+      /// Campo generado automáticamente.
+      /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+      /// </remarks>
+      protected global::System.Web.UI.WebControls.DropDownList ddlTecnico;
 
-		/// <summary>
-		/// Control ddlEstadoAgregar.
-		/// </summary>
-		/// <remarks>
-		/// Campo generado automáticamente.
-		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.DropDownList ddlEstadoAgregar;
+      /// <summary>
+      /// Control txtDescripcion.
+      /// </summary>
+      /// <remarks>
+      /// Campo generado automáticamente.
+      /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+      /// </remarks>
+      protected global::System.Web.UI.WebControls.TextBox txtDescripcion;
 
-		/// <summary>
-		/// Control btnAgregar.
-		/// </summary>
-		/// <remarks>
-		/// Campo generado automáticamente.
-		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.LinkButton btnAgregar;
+      /// <summary>
+      /// Control ddlEstadoAgregar.
+      /// </summary>
+      /// <remarks>
+      /// Campo generado automáticamente.
+      /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+      /// </remarks>
+      protected global::System.Web.UI.WebControls.DropDownList ddlEstadoAgregar;
 
-		/// <summary>
-		/// Control btnAgregarVolver.
-		/// </summary>
-		/// <remarks>
-		/// Campo generado automáticamente.
-		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.LinkButton btnAgregarVolver;
-	}
+      /// <summary>
+      /// Control btnAgregar.
+      /// </summary>
+      /// <remarks>
+      /// Campo generado automáticamente.
+      /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+      /// </remarks>
+      protected global::System.Web.UI.WebControls.LinkButton btnAgregar;
+
+      /// <summary>
+      /// Control btnAgregarVolver.
+      /// </summary>
+      /// <remarks>
+      /// Campo generado automáticamente.
+      /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+      /// </remarks>
+      protected global::System.Web.UI.WebControls.LinkButton btnAgregarVolver;
+   }
 }

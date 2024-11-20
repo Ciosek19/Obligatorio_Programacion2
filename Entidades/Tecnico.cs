@@ -14,7 +14,6 @@ namespace Entidades
     public string Apellido { get; set; }
     public string CI { get; set; }
     public Especialidad EspecialidadTecnico { get; set; }
-    public List<string> ListaComentarios { get; set; }
 
     public Tecnico(string nombre, string apellido, string cI, Especialidad especialidad)
     {
@@ -23,7 +22,6 @@ namespace Entidades
       Apellido = apellido;
       CI = cI;
       EspecialidadTecnico = especialidad;
-      ListaComentarios = new List<string>();
     }
   }
 

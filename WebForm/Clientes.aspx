@@ -16,7 +16,7 @@
 				<asp:BoundField DataField="Email" HeaderText="Email*" />
 				<asp:TemplateField>
 					<ItemTemplate>
-						<asp:LinkButton runat="server" OnClick="Editar_Click" 
+						<asp:LinkButton runat="server" OnClick="Editar_Click"
 							CssClass="btn btn-sm btn-primary" CommandArgument='<%#Eval("ID_Cliente") %>'>
 						Editar</asp:LinkButton>
 						<asp:LinkButton runat="server"
@@ -62,17 +62,17 @@ Agregar Cliente
 
 		<br />
 		<br />
-			<asp:LinkButton runat="server" ID="btnGuardarCambios"
-		CssClass="btn btn-sm btn-success" OnClick="GuardarCambios_Click">
+		<asp:LinkButton runat="server" ID="btnGuardarCambios"
+			CssClass="btn btn-sm btn-success" OnClick="GuardarCambios_Click">
 Guardar
-	</asp:LinkButton>
-	<asp:LinkButton runat="server" ID="btnAgregar"
-		CssClass="btn btn-sm btn-success" OnClick="Agregar_Click">
+		</asp:LinkButton>
+		<asp:LinkButton runat="server" ID="btnAgregar"
+			CssClass="btn btn-sm btn-success" OnClick="Agregar_Click">
 Agregar
-	</asp:LinkButton>
+		</asp:LinkButton>
 		<asp:LinkButton runat="server" ID="btnVolver"
-		CssClass="btn btn-sm btn-danger ml-2" OnClick="Volver_Click">
+			CssClass="btn btn-sm btn-danger ml-2" OnClick="Volver_Click">
 Volver
-	</asp:LinkButton>
+		</asp:LinkButton>
 	</asp:PlaceHolder>
 </asp:Content>
