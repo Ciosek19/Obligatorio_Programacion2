@@ -31,5 +31,7 @@ namespace Entidades
     public void AgregarComentario(string comentario){
       Comentarios.Add(comentario);
     }
+
+   
   }
 }

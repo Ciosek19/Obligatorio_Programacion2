@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.WebSockets;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -48,16 +49,28 @@ namespace WebForm
 
       protected void GuardarCambios_Click(object sender, EventArgs e)
       {
-         LinkButton btn = (LinkButton)sender;
-         int idCliente = Convert.ToInt32(txtId.Text);
-         Cliente clienteBaseDatos = BaseDeDatos.ObtenerCliente(idCliente);
-         clienteBaseDatos.Nombre = txtNombre.Text;
-         clienteBaseDatos.Apellido = txtApellido.Text;
-         clienteBaseDatos.CI = txtCedula.Text;
-         clienteBaseDatos.Direccion = txtDireccion.Text;
-         clienteBaseDatos.Telefono = txtTelefono.Text;
-         clienteBaseDatos.Email = txtEmail.Text;
-         Response.Redirect("~/Clientes");
+         if (Page.IsValid)
+         {
+            string cedula = txtCedula.Text.Trim();
+            if (ValidadorCedula.EsCedulaValida(cedula))
+            {
+               LinkButton btn = (LinkButton)sender;
+               int idCliente = Convert.ToInt32(txtId.Text);
+               Cliente clienteBaseDatos = BaseDeDatos.ObtenerCliente(idCliente);
+               clienteBaseDatos.Nombre = txtNombre.Text;
+               clienteBaseDatos.Apellido = txtApellido.Text;
+               clienteBaseDatos.CI = txtCedula.Text;
+               clienteBaseDatos.Direccion = txtDireccion.Text;
+               clienteBaseDatos.Telefono = txtTelefono.Text;
+               clienteBaseDatos.Email = txtEmail.Text;
+               Response.Redirect("~/Clientes");
+            }
+            else
+            {
+               lblError.Text = "La cédula ingresada no es válida.";
+               lblError.Visible = true;
+            }
+         }
       }
 
       protected void AgregarCliente_Click(object sender, EventArgs e)
@@ -67,14 +80,28 @@ namespace WebForm
          lblEditarAgregar.Text = "Agregar cliente:";
          btnAgregar.Visible = true;
          btnGuardarCambios.Visible = false;
+         txtId.Text = (Cliente.IdIncremental + 1).ToString();
       }
 
       protected void Agregar_Click(object sender, EventArgs e)
       {
-         Cliente cliente = new Cliente(txtNombre.Text, txtApellido.Text, txtCedula.Text, txtDireccion.Text, txtTelefono.Text, txtEmail.Text);
-         BaseDeDatos.ListaClientes.Add(cliente);
-         LimpiarTextbox();
-         Response.Redirect("~/Clientes");
+
+         if (Page.IsValid)
+         {
+            string cedula = txtCedula.Text.Trim();
+            if (ValidadorCedula.EsCedulaValida(cedula))
+            {
+               Cliente cliente = new Cliente(txtNombre.Text, txtApellido.Text, txtCedula.Text, txtDireccion.Text, txtTelefono.Text, txtEmail.Text);
+               BaseDeDatos.ListaClientes.Add(cliente);
+               LimpiarTextbox();
+               Response.Redirect("~/Clientes");
+            }
+            else
+            {
+               lblError.Text = "La cédula ingresada no es válida.";
+               lblError.Visible = true;
+            }
+         }
       }
 
       protected void Volver_Click(object sender, EventArgs e)

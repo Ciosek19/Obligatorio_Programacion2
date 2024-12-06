@@ -8,7 +8,7 @@ namespace Entidades
 {
   public class Cliente
   {
-    private static int IdIncremental = 0;
+    public static int IdIncremental = 0;
     public int ID_Cliente { get; }
     public string Nombre { get; set; }
     public string Apellido { get; set; }

@@ -8,22 +8,20 @@ namespace Entidades
 {
   public class Tecnico
   {
-    private static int IdIncremental = 0;
+    public static int IdIncremental = 0;
     public int ID_Tecnico { get; set; }
     public string Nombre { get; set; }
     public string Apellido { get; set; }
     public string CI { get; set; }
     public Especialidad EspecialidadTecnico { get; set; }
 
-    public Tecnico(string nombre, string apellido, string cI, Especialidad especialidad)
-    {
+   public Tecnico(string nombre, string apellido, string cI, Especialidad especialidad)
+   {
       ID_Tecnico = ++IdIncremental;
       Nombre = nombre;
       Apellido = apellido;
       CI = cI;
       EspecialidadTecnico = especialidad;
-    }
+   }
   }
-
-  
 }

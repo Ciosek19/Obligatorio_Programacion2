@@ -16,7 +16,7 @@ namespace WebForm
          {
             if (Session["Nombre"] != null)
             {
-               lblUsuario.Text = $"Usuario: {Session["Nombre"].ToString()}";
+               lblUsuario.Text = $"Usuario: {Session["Nombre"]}";
                if (Session["Id"].ToString() == "0")
                {
                   lblUsuario.ForeColor = Color.Green;

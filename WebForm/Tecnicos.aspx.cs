@@ -47,39 +47,67 @@ namespace WebForm
 
 		protected void GuardarCambios_Click(object sender, EventArgs e)
 		{
-			int idTecnico = Convert.ToInt32(txtId.Text);
-			Tecnico tecnicoBaseDatos = BaseDeDatos.ObtenerTecnico(idTecnico);
-			tecnicoBaseDatos.Nombre = txtNombre.Text;
-			tecnicoBaseDatos.Apellido = txtApellido.Text;
-			tecnicoBaseDatos.CI = txtCedula.Text;
-			Especialidad esp;
-			if (Enum.TryParse(ddlEspecialidad.SelectedValue, out esp))
-			{
-				tecnicoBaseDatos.EspecialidadTecnico = esp;
-			}
-			Response.Redirect("~/Tecnicos");
-		}
+			
+         if (Page.IsValid)
+         {
+            string cedula = txtCedula.Text.Trim();
+            if (ValidadorCedula.EsCedulaValida(cedula))
+            {
+               int idTecnico = Convert.ToInt32(txtId.Text);
+               Tecnico tecnicoBaseDatos = BaseDeDatos.ObtenerTecnico(idTecnico);
+               tecnicoBaseDatos.Nombre = txtNombre.Text;
+               tecnicoBaseDatos.Apellido = txtApellido.Text;
+               tecnicoBaseDatos.CI = txtCedula.Text;
+               Especialidad esp;
+               if (Enum.TryParse(ddlEspecialidad.SelectedValue, out esp))
+               {
+                  tecnicoBaseDatos.EspecialidadTecnico = esp;
+               }
+               Response.Redirect("~/Tecnicos");
+            }
+            else
+            {
+               lblError.Text = "La cédula ingresada no es válida.";
+               lblError.Visible = true;
+            }
+         }
 
-		protected void AgregarTecnico_Click(object sender, EventArgs e)
+      }
+
+      protected void AgregarTecnico_Click(object sender, EventArgs e)
 		{
 			btnAgregarTecnico.Enabled = false;
 			editarAgregarContenedor.Visible = true;
-			lblEditarAgregar.Text = "Agregar cliente:";
+			lblEditarAgregar.Text = "Agregar tecnico:";
+			txtId.Text = (Tecnico.IdIncremental + 1).ToString();
 			btnAgregar.Visible = true;
 			btnGuardarCambios.Visible = false;
+
 
 		}
 
 		protected void Agregar_Click(object sender, EventArgs e)
 		{
-			string especialidad = ddlEspecialidad.SelectedValue;
-			Especialidad esp;
-			Enum.TryParse(ddlEspecialidad.SelectedValue, out esp);
-			Tecnico tecnico = new Tecnico(txtNombre.Text, txtApellido.Text, txtCedula.Text, esp);
-			BaseDeDatos.ListaTecnicos.Add(tecnico);
-			LimpiarTextbox();
-			Response.Redirect("~/Tecnicos");
-		}
+         if (Page.IsValid)
+         {
+            string cedula = txtCedula.Text.Trim();
+            if (ValidadorCedula.EsCedulaValida(cedula))
+            {
+               string especialidad = ddlEspecialidad.SelectedValue;
+               Especialidad esp;
+               Enum.TryParse(ddlEspecialidad.SelectedValue, out esp);
+               Tecnico tecnico = new Tecnico(txtNombre.Text, txtApellido.Text, txtCedula.Text, esp);
+               BaseDeDatos.ListaTecnicos.Add(tecnico);
+               LimpiarTextbox();
+               Response.Redirect("~/Tecnicos");
+            }
+            else
+            {
+               lblError.Text = "La cédula ingresada no es válida.";
+               lblError.Visible = true;
+            }
+         }
+      }
 
 		protected void Volver_Click(object sender, EventArgs e)
 		{
