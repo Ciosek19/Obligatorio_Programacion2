@@ -40,5 +40,19 @@ namespace Entidades
       Telefono = telefono;
       Email = email;
     }
-  }
+
+      public int getID_Cliente() { return ID_Cliente; }
+      public string getNombre() { return Nombre; }
+      public void setNombre(string Nombre) { this.Nombre = Nombre; }
+      public string getApellido() { return Apellido; }
+      public void setApellido(string Apellido) { this.Apellido = Apellido; }
+      public string getCI() { return CI; }
+      public void setCI(string CI) { this.CI = CI; }
+      public string getDireccion() { return Direccion; }
+      public void setDireccion(string Direccion) { this.Direccion = Direccion; }
+      public string getTelefono() { return Telefono; }
+      public void setTelefono(string Telefono) { this.Telefono = Telefono; }
+      public string getEmail() { return Email; }
+      public void setEmail(string Email) { this.Email = Email; }
+   }
 }

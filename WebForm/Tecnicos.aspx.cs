@@ -37,10 +37,10 @@ namespace WebForm
 			btnAgregar.Visible = false;
 			btnGuardarCambios.Visible = true;
 			Tecnico tecnicoBaseDatos = BaseDeDatos.ObtenerTecnico(idTecnico);
-			txtId.Text = tecnicoBaseDatos.ID_Tecnico.ToString();
-			txtNombre.Text = tecnicoBaseDatos.Nombre;
-			txtApellido.Text = tecnicoBaseDatos.Apellido;
-			txtCedula.Text = tecnicoBaseDatos.CI;
+			txtId.Text = tecnicoBaseDatos.getID_Tecnico().ToString();
+			txtNombre.Text = tecnicoBaseDatos.getNombre();
+			txtApellido.Text = tecnicoBaseDatos.getApellido();
+			txtCedula.Text = tecnicoBaseDatos.getCI();
 			ddlEspecialidad.ClearSelection();
 			ddlEspecialidad.SelectedValue = tecnicoBaseDatos.EspecialidadTecnico.ToString();
 		}

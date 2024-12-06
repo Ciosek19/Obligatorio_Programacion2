@@ -46,7 +46,7 @@ namespace BaseDatos
       {
          foreach (Cliente cliente in ListaClientes)
          {
-            if (cliente.ID_Cliente == idCliente)
+            if (cliente.getID_Cliente() == idCliente)
             {
                return cliente;
             }
@@ -58,7 +58,7 @@ namespace BaseDatos
       {
          foreach (var cliente in ListaClientes)
          {
-            if (cliente.ID_Cliente == idCliente)
+            if (cliente.getID_Cliente() == idCliente)
             {
                ListaClientes.Remove(cliente);
                break;
@@ -73,7 +73,7 @@ namespace BaseDatos
       {
          foreach (Tecnico tecnico in ListaTecnicos)
          {
-            if (tecnico.ID_Tecnico == idTecnico)
+            if (tecnico.getID_Tecnico() == idTecnico)
             {
                return tecnico;
             }
@@ -85,7 +85,7 @@ namespace BaseDatos
       {
          foreach (Tecnico tecnico in ListaTecnicos)
          {
-            if (tecnico.ID_Tecnico == idTecnico)
+            if (tecnico.getID_Tecnico() == idTecnico)
             {
                ListaTecnicos.Remove(tecnico);
                break;
@@ -125,7 +125,7 @@ namespace BaseDatos
          List<Orden> listaOrdenes = new List<Orden>();
          foreach (Orden orden in ListaOrdenes)
          {
-            if (orden.OTecnico.ID_Tecnico == tecnico.ID_Tecnico)
+            if (orden.getOTecnico().ID_Tecnico == tecnico.ID_Tecnico)
             {
                listaOrdenes.Add(orden);
             }
@@ -138,7 +138,7 @@ namespace BaseDatos
          int cantidad = 0;
          foreach (Orden orden in OrdenesTecnico(tecnico))
          {
-            if (orden.EstadoOrden == estado)
+            if (orden.getEstadoOrden() == estado)
             {
                cantidad++;
             }
@@ -151,7 +151,7 @@ namespace BaseDatos
          List<Orden> listaFiltrada = new List<Orden>();
          foreach (Orden orden in ListaOrdenes)
          {
-            if (orden.EstadoOrden == estado)
+            if (orden.getEstadoOrden() == estado)
             {
                listaFiltrada.Add(orden);
             }
@@ -163,7 +163,7 @@ namespace BaseDatos
       {
          foreach (Usuario u in ListaUsuarios)
          {
-            if (nombre == u.Nombre && clave == u.Clave)
+            if (nombre == u.getNombre() && clave == u.getClave())
             {
                return u;
             }

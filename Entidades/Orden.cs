@@ -31,7 +31,20 @@ namespace Entidades
     public void AgregarComentario(string comentario){
       Comentarios.Add(comentario);
     }
+      public int getID_Orden() { return ID_Orden; }
+      public void setID_Orden(int ID_Orden) { this.ID_Orden = ID_Orden; }
+      public Cliente getOCliente() { return OCliente; }
+      public void setOCliente(Cliente OCliente) { this.OCliente = OCliente; }
+      public Tecnico getOTecnico() { return OTecnico; }
+      public void setOTecnico(Tecnico OTecnico) { this.OTecnico = OTecnico; }
+      public string getDescripcion() { return Descripcion; }
+      public void setDescripcion(string Descripcion) { this.Descripcion = Descripcion; }
+      public DateTime getFecha() { return Fecha; }
+      public void setFecha(DateTime Fecha) { this.Fecha = Fecha; }
+      public Estado getEstadoOrden() { return EstadoOrden; }
+      public void setEstadoOrden(Estado EstadoOrden) { this.EstadoOrden = EstadoOrden; }
+      public List<string> getComentarios() { return Comentarios; }
+      public void setComentarios(List<string> Comentarios) { this.Comentarios = Comentarios; }
 
-   
-  }
+   }
 }

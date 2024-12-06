@@ -81,8 +81,8 @@ namespace WebForm
          btnGuardarCambios.Visible = true;
          Orden ordenBaseDeDatos = BaseDeDatos.ObtenerOrden(idOrden);
          ddlEstado.ClearSelection();
-         ddlEstado.SelectedValue = ordenBaseDeDatos.EstadoOrden.ToString();
-         txtId.Text = ordenBaseDeDatos.ID_Orden.ToString();
+         ddlEstado.SelectedValue = ordenBaseDeDatos.getEstadoOrden().ToString();
+         txtId.Text = ordenBaseDeDatos.getID_Orden().ToString();
       }
 
       protected void GuardarCambios_Click(object sender, EventArgs e)
@@ -107,7 +107,7 @@ namespace WebForm
          lblEditarAgregar.Text = "Agregar Orden:";
          btnAgregar.Visible = true;
          btnGuardarCambios.Visible = false;
-         txtAgregarID.Text = (BaseDeDatos.ListaOrdenes.Last().ID_Orden + 1).ToString();
+         txtAgregarID.Text = (BaseDeDatos.ListaOrdenes.Last().getID_Orden() + 1).ToString();
       }
 
       protected void Agregar_Click(object sender, EventArgs e)

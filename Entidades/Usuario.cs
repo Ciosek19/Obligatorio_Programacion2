@@ -25,8 +25,11 @@ namespace Entidades
          IdUsuario = tecnico.ID_Tecnico;
       }
 
-      public string getNombre() { return Nombre; }
-      public string getClave() { return Clave; }
       public int getIdUsuario() { return IdUsuario; }
+      public void setIdUsuario(int IdUsuario) { this.IdUsuario = IdUsuario; }
+      public string getNombre() { return Nombre; }
+      public void setNombre(string Nombre) { this.Nombre = Nombre; }
+      public string getClave() { return Clave; }
+      public void setClave(string Clave) { this.Clave = Clave; }
    }
 }

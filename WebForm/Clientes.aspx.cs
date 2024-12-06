@@ -38,13 +38,13 @@ namespace WebForm
          btnAgregar.Visible = false;
          btnGuardarCambios.Visible = true;
          Cliente clienteBaseDatos = BaseDeDatos.ObtenerCliente(idCliente);
-         txtId.Text = clienteBaseDatos.ID_Cliente.ToString();
-         txtNombre.Text = clienteBaseDatos.Nombre;
-         txtApellido.Text = clienteBaseDatos.Apellido;
-         txtCedula.Text = clienteBaseDatos.CI;
-         txtDireccion.Text = clienteBaseDatos.Direccion;
-         txtTelefono.Text = clienteBaseDatos.Telefono;
-         txtEmail.Text = clienteBaseDatos.Email;
+         txtId.Text = clienteBaseDatos.getID_Cliente().ToString();
+         txtNombre.Text = clienteBaseDatos.getNombre();
+         txtApellido.Text = clienteBaseDatos.getApellido();
+         txtCedula.Text = clienteBaseDatos.getCI();
+         txtDireccion.Text = clienteBaseDatos.getDireccion();
+         txtTelefono.Text = clienteBaseDatos.getTelefono();
+         txtEmail.Text = clienteBaseDatos.getEmail();
       }
 
       protected void GuardarCambios_Click(object sender, EventArgs e)
