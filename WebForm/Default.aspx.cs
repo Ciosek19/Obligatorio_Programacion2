@@ -20,7 +20,7 @@ namespace WebForm
 
 		private void MostrarOrdenes()
 		{
-			List<Orden> lista = BaseDeDatos.ListaOrdenes;
+			List<Orden> lista = BaseDeDatos.OrdenesUltimoMes();
 			GVOrdenes.DataSource = lista;
 			GVOrdenes.DataBind();
 		}

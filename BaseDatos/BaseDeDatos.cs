@@ -27,9 +27,9 @@ namespace BaseDatos
 
       public static List<Orden> ListaOrdenes = new List<Orden>
       {
-         new Orden(ListaClientes[0], ListaTecnicos[0], "Limpiar virus", DateTime.Now, Estado.Completada, new List<string>(){"Habia descargado por ares","Se tuvo que hacer una limpieza total"}),
-         new Orden(ListaClientes[1], ListaTecnicos[1], "Arreglar Heladera", DateTime.Now, Estado.EnProgreso, new List<string>(){"Se necesita una nueva pieza","Se tiene que mandar a montevideo"}),
-         new Orden(ListaClientes[2], ListaTecnicos[2], "Instalar luces", DateTime.Now, Estado.Pendiente, new List<string>(){"No me abre la puerta","No era la direccion correcta" })
+         new Orden(ListaClientes[0], ListaTecnicos[0], "Limpiar virus",new DateTime(2024,11,5), Estado.Completada, new List<string>(){"Habia descargado por ares","Se tuvo que hacer una limpieza total"}),
+         new Orden(ListaClientes[1], ListaTecnicos[1], "Arreglar Heladera",new DateTime(2024,12,1), Estado.EnProgreso, new List<string>(){"Se necesita una nueva pieza","Se tiene que mandar a montevideo"}),
+         new Orden(ListaClientes[2], ListaTecnicos[2], "Instalar luces",new DateTime(2024,12,7), Estado.Pendiente, new List<string>(){"No me abre la puerta","No era la direccion correcta" })
       };
 
       public static List<Usuario> ListaUsuarios = new List<Usuario>
@@ -117,6 +117,33 @@ namespace BaseDatos
             }
          }
       }
+
+      public static List<Orden> OrdenesUltimoMes()
+      {
+         List<Orden> ordenes = new List<Orden>();
+         foreach (Orden orden in ListaOrdenes)
+         {
+            if (orden.Fecha.Month == DateTime.Now.Month)
+            {
+               ordenes.Add(orden);
+            }
+         }
+         return ordenes;
+      }
+
+      public static List<Orden> OrdenesCompletadasUltimoMes()
+      {
+         List<Orden> ordenes = new List<Orden>();
+         foreach (Orden orden in ListaOrdenes)
+         {
+            if (orden.Fecha.Month == DateTime.Now.Month && orden.EstadoOrden == Estado.Completada)
+            {
+               ordenes.Add(orden);
+            }
+         }
+         return ordenes;
+      }
+
       ////////////////////////
       /// REPORTES ACTIVIDAD
 

@@ -15,33 +15,34 @@ namespace WebForm
 		{
 			if (!IsPostBack)
 			{
-				ddlTecnicos.DataSource = BaseDeDatos.ListaTecnicos;
+            ddlTecnicos.DataSource = BaseDeDatos.ListaTecnicos;
 				ddlTecnicos.DataTextField = "Nombre";
 				ddlTecnicos.DataValueField = "ID_Tecnico";
 				ddlTecnicos.DataBind();
+            ddlTecnicos.Items.Insert(0, new ListItem("Seleccionar técnico", ""));
 
-				ddlEstado.DataSource = Enum.GetValues(typeof(Estado));
-				ddlEstado.DataBind();
-
-			}
-		}
+				GVOrdenes.DataSource = BaseDeDatos.OrdenesCompletadasUltimoMes();
+				GVOrdenes.DataBind();
+         }
+      }
 
 		public void MostrarCantidad(object sender, EventArgs e)
 		{
-			Tecnico tecnico = BaseDeDatos.ObtenerTecnico(Convert.ToInt32(ddlTecnicos.SelectedValue));
-			tcPendiente.Text = BaseDeDatos.CantidadOrdenesEstadoTecnico(tecnico, Estado.Pendiente).ToString();
-			tcProgreso.Text = BaseDeDatos.CantidadOrdenesEstadoTecnico(tecnico, Estado.EnProgreso).ToString();
-			tcCompletada.Text = BaseDeDatos.CantidadOrdenesEstadoTecnico(tecnico, Estado.Completada).ToString();
+			try
+			{
+            Tecnico tecnico = BaseDeDatos.ObtenerTecnico(Convert.ToInt32(ddlTecnicos.SelectedValue));
+            tcPendiente.Text = BaseDeDatos.CantidadOrdenesEstadoTecnico(tecnico, Estado.Pendiente).ToString();
+            tcProgreso.Text = BaseDeDatos.CantidadOrdenesEstadoTecnico(tecnico, Estado.EnProgreso).ToString();
+            tcCompletada.Text = BaseDeDatos.CantidadOrdenesEstadoTecnico(tecnico, Estado.Completada).ToString();
+         }
+			catch (Exception ex)
+			{
+            tcPendiente.Text = "-";
+            tcProgreso.Text = "-";
+            tcCompletada.Text = "-";
+         }
+         
 
 		}
-
-		public void MostrarOrdenesPorEstado(object sender, EventArgs e)
-		{
-			Estado estado = (Estado)Enum.Parse(typeof(Estado), ddlEstado.SelectedValue);
-			GVOrdenes.DataSource = BaseDeDatos.FiltrarOrdenesPorEstado(estado);
-			GVOrdenes.DataBind();
-		}
-
-		
 	}
 }

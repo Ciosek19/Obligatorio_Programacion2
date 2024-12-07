@@ -10,7 +10,9 @@
 	<label style="font-size: 20px">Seleccione al tecnico</label><br />
 	<br />
 	<label>Tecnico: </label>
-	<asp:DropDownList runat="server" ID="ddlTecnicos" OnSelectedIndexChanged="MostrarCantidad" AutoPostBack="true"></asp:DropDownList><br />
+	<asp:DropDownList runat="server" ID="ddlTecnicos" OnSelectedIndexChanged="MostrarCantidad" AutoPostBack="true">
+		<asp:ListItem Text="Seleccionar técnico" Value="" Selected="True"></asp:ListItem>
+	</asp:DropDownList><br />
 	<br />
 	<asp:Table runat="server" CssClass="table table-bordered">
 		<asp:TableRow>
@@ -25,10 +27,7 @@
 		</asp:TableRow>
 	</asp:Table>
 	<hr />
-	<h3>Ordenes por estado</h3>
-	<label style="font-size: 20px">Seleccione el estado de la Orden</label><br />
-	<label>Estado: </label>
-	<asp:DropDownList runat="server" ID="ddlEstado" OnSelectedIndexChanged="MostrarOrdenesPorEstado" AutoPostBack="true"></asp:DropDownList><br />
+	<h3>Ordenes completadas ultimo mes: </h3>
 	<asp:GridView ID="GVOrdenes" runat="server" CssClass="table table-bordered mt-3" AutoGenerateColumns="false">
 		<Columns>
 			<asp:BoundField DataField="ID_Orden" HeaderText="ID" />

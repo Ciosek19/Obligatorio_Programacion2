@@ -19,7 +19,8 @@ namespace WebForm
 				ddlEspecialidad.DataSource = Enum.GetValues(typeof(Especialidad));
 				ddlEspecialidad.DataBind();
 			}
-		}
+			
+      }
 
 		protected void MostrarTecnicos()
 		{
@@ -82,7 +83,6 @@ namespace WebForm
 			txtId.Text = (Tecnico.IdIncremental + 1).ToString();
 			btnAgregar.Visible = true;
 			btnGuardarCambios.Visible = false;
-
 
 		}
 
